@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import styles from "./global.module.scss";
-import Header from "./header/ui/components/header/header";
+import Header from "./core/ui/components/header/header";
 
 export const metadata: Metadata = {
   title: "Buscar producto de tú interés",
