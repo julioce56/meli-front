@@ -23,9 +23,10 @@ export type Item = {
   free_shipping: boolean;
   sold_quantity: number;
   description: string;
+  initial_quantity: number;
 };
 
-export type Items = Omit<Item, "sold_quantity" | "description"> & {};
+export type Items = Omit<Item, "sold_quantity" | "description" | "initial_quantity"> & {};
 
 export type Price = {
   currency: string;

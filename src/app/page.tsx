@@ -1,16 +1,11 @@
-'use client'
 
-import { Provider } from "react-redux";
-import Header from "./core/ui/components/header/header";
-import { store } from "./core/store/store";
 
-const Home = ({ children }: { children: React.ReactNode }) => {
+const InitialPage = () => {
   return (
-    <Provider store={store}>
-      <Header />
-      {children}
-    </Provider>
+    <div>
+
+    </div>
   );
 };
 
-export default Home;
+export default InitialPage;

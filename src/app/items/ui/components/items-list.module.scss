@@ -1,0 +1,47 @@
+@import "../../../variables.module.scss";
+
+.listWrapper {
+  display: block;
+  background: $white-color;
+  .item {
+    display: flex;
+    padding: 20px;
+    .description {
+      padding: 10px;
+      width: 80%;
+      .price {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        strong {
+          font-size: 15px;
+        }
+        .shipping {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          background-color: $green-color;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          span {
+            font-size: 11px;
+          }
+        }
+      }
+      .title {
+        margin-top: 10px;
+      }
+    }
+    .condition {
+      width: 20%;
+      color: $grey-extra-dark-color;
+      font-size: 14px;
+    }
+  }
+  .separator {
+    width: 95%;
+    border: 1px solid $grey-color;
+  }
+}

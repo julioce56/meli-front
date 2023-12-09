@@ -9,7 +9,17 @@ const nextConfig = {
     },
     env: {
         API_BASE_PATH: "http://localhost:4000/api"
-    }
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: '**',
+                port: '',
+                pathname: '**',
+            },
+        ],
+    },
 }
 
 module.exports = nextConfig

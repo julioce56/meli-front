@@ -1,0 +1,14 @@
+@import "../../../../variables.module.scss";
+
+.breadcrumbWrapper {
+    margin: 20px auto;
+    color: $grey-extra-dark-color;
+    .category {
+        width: fit-content;
+        display: inline-block;
+        .separator {
+            margin: auto 5px;
+        }
+    }
+}
+
