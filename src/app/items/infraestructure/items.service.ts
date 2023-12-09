@@ -7,10 +7,8 @@ export class ItemsService implements ItemsRepository {
 
     async getAllItems(query: string): Promise<ResItems> {
         const response = await fetch(`${this.apiBasePath}/items?q=${query}`, {
-            mode: "cors",
             method: "GET",
             headers: {
-                "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json",
             }
         });
@@ -19,10 +17,8 @@ export class ItemsService implements ItemsRepository {
 
     async getItemDetail(id: string): Promise<ResItem> {
         const response = await fetch(`${this.apiBasePath}/items/${id}`, {
-            mode: "cors",
             method: "GET",
             headers: {
-                "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json",
             }
         });

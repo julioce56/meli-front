@@ -8,7 +8,7 @@ const nextConfig = {
         includePaths: [path.join(__dirname, 'styles')]
     },
     env: {
-        $: "http://localhost:4000/api"
+        API_BASE_PATH: "http://localhost:4000/api"
     }
 }
 

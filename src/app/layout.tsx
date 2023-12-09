@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import styles from "./global.module.scss";
 import Header from "./core/ui/components/header/header";
+import { Provider } from "react-redux";
+import { store } from "./core/store/store";
+import Home from "./page";
 
 export const metadata: Metadata = {
   title: "Buscar producto de tú interés",
@@ -15,8 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={styles.wrapper}>
-        <Header />
-        {children}
+          <Home>
+            {children}
+          </Home>
       </body>
     </html>
   );

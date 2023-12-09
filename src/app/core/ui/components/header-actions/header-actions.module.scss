@@ -1,0 +1,27 @@
+@import "../../../../variables.module.scss";
+
+.inputWrapper {
+    display: flex;
+    width: 60%;
+    input {
+      padding: 10px;
+      width: -webkit-fill-available;
+      border: none;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      outline: none;
+    }
+    .search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      background: $grey-color;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      &:hover {
+        cursor: pointer;
+        background: $grey-dark-color;
+      }
+    }
+  }
