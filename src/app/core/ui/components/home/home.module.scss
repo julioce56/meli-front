@@ -1,4 +1,10 @@
 .homeWrapper {
-    width: 70%;
-    margin: auto;
+  width: 70%;
+  margin: auto;
+}
+
+@media (max-width: 767px) {
+  .homeWrapper {
+    width: 90%;
+  }
 }

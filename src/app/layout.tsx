@@ -7,11 +7,12 @@ import Home from "./core/ui/components/home/home";
 import { Inter } from 'next/font/google';
 import './globalicons.module.scss'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Toaster } from "sonner";
  
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Buscar producto de tú interés",
+  title: "Meli busqueda de productos",
   description: "Bienvenidos a la busqueda de productos en mercado libre",
 };
 
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${styles.wrapper}`}>
+          <Toaster position="top-center" richColors/>
           <Home>
             {children}
           </Home>

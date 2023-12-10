@@ -2,7 +2,7 @@ import { ItemsManagement } from "@/app/items/application/items.management";
 import { ItemsService } from "@/app/items/infraestructure/items.service";
 import { itemsActions } from "@/app/items/store/items.slice";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { KeyboardEvent, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../store/store";
 
@@ -12,6 +12,7 @@ export const HeaderHook = () => {
   const [inputValue, setInputValue] = useState("");
   const dispatch = useDispatch();
   const item = useAppSelector((state) => state.items.item);
+  const itemSearch = useAppSelector((state) => state.items.textSearch);
   const params = useSearchParams();
 
   useEffect(() => {
@@ -19,10 +20,17 @@ export const HeaderHook = () => {
   }, [item]);
 
   useEffect(() => {
+    if (itemSearch) {
+      setInputValue(itemSearch);
+      goToSearchPath(itemSearch);
+    }
+  }, [itemSearch]);
+
+  useEffect(() => {
     if (params.get("search")) {
-      console.log(params.get("search"), "object");
       const query = params.get("search") as string;
       setInputValue(query);
+      dispatch(itemsActions.setTextSearch(query));
       handleSearchItem(query);
     }
   }, [params]);
@@ -32,13 +40,28 @@ export const HeaderHook = () => {
       (async () => {
         const resp = await itemsManager.getAllItems(query);
         dispatch(itemsActions.setItems(resp));
-        router.push(`/items?search=${query}`);
       })();
     }
   };
 
+  const goToSearchPath = (query: string) => {
+    if (query !== "") {
+      router.push(`/items?search=${query}`);
+    }
+  };
+
+  const handleButtonSearch = () => {
+    dispatch(itemsActions.setTextSearch(inputValue));
+    goToSearchPath(inputValue);
+  }
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement> | undefined) => {
+    if (e?.key === "Enter") {
+      handleButtonSearch();
+    }
+  };
+
   const goToHome = () => {
-    console.log("object");
     setInputValue("");
     router.push("/");
   };
@@ -48,5 +71,8 @@ export const HeaderHook = () => {
     setInputValue,
     handleSearchItem,
     goToHome,
+    handleKeyDown,
+    goToSearchPath,
+    handleButtonSearch
   };
 };

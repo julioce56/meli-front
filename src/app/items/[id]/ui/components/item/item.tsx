@@ -10,8 +10,7 @@ import { ItemsListHook } from "@/app/items/ui/hooks/items-list.hook";
 import { useParams } from "next/navigation";
 
 const Item: FC = () => {
-  const { item } = ItemHook();
-  console.log(item);
+  const { item, handleButton } = ItemHook();
   const { handleGetDetailItem } = ItemsListHook();
   const params = useParams();
 
@@ -23,41 +22,47 @@ const Item: FC = () => {
 
   return (
     item && (
-      <div className={styles.itemWrapper}>
-        <Row>
-          <Col sm={8}>
-            <Image
-              src={item.picture}
-              alt={item.title}
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
-            />
-          </Col>
-          <Col sm={4}>
-            <small>
-              {item.condition} - {numberFormat(item.initial_quantity)} vendidos
-            </small>
-            <div>
-              <strong>{item.title}</strong>
-            </div>
-            <div className={styles.price}>
-              {item.price.currency} {item.price.amount.toLocaleString()}
-            </div>
-            <div className={styles.button}>Comprar</div>
-          </Col>
-          <Col sm={8}>
-            <div className={styles.description}>
-              <h4>Descripción del producto</h4>
-              <p>{item.description}</p>
-            </div>
-          </Col>
-        </Row>
-      </div>
+      <>
+        <title>{`${item?.title}`}</title>
+        <div className={styles.itemWrapper}>
+          <Row>
+            <Col sm={8}>
+              <Image
+                src={item.picture}
+                alt={item.title}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            </Col>
+            <Col sm={4}>
+              <small>
+                {item.condition} - {numberFormat(item.initial_quantity)}{" "}
+                vendidos
+              </small>
+              <div>
+                <strong>{item.title}</strong>
+              </div>
+              <div className={styles.price}>
+                {item.price.currency} {item.price.amount.toLocaleString()}
+              </div>
+              <div className={styles.button} onClick={handleButton}>
+                Comprar
+              </div>
+            </Col>
+            <Col sm={8}>
+              <div className={styles.description}>
+                <h4>Descripción del producto</h4>
+                <p>{item.description}</p>
+              </div>
+            </Col>
+          </Row>
+        </div>
+      </>
     )
   );
 };

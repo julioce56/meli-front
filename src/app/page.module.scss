@@ -1,3 +1,14 @@
+@import "./variables.module.scss";
+
 .initialWrapper {
-    
+    text-align: center;
+    .image {
+        width: 60%;
+        height: auto;
+    }
+    .text {
+        color: $grey-extra-dark-color;
+    }
 }
+
+

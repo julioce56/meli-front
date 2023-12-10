@@ -11,6 +11,7 @@ export const ItemsListHook = () => {
   const itemsManager = new ItemsManagement(new ItemsService());
   const items = useAppSelector((state) => state.items.items);
   const dispatch = useDispatch();
+  const currentInputSearch = useAppSelector((state) => state.items.textSearch);
 
   const getOnlyFourItems = (): ResItems => {
     const aux = {
@@ -23,18 +24,17 @@ export const ItemsListHook = () => {
   const handleGetDetailItem = (id: string, noRedirect?: boolean) => {
     (async () => {
       const resp = await itemsManager.getItemDetail(id);
-      console.log(resp, 'rsrsrsr');
       dispatch(itemsActions.setItem(resp));
       if (!noRedirect) {
         router.push(`items/${id}`);
       }
-      
     })();
   };
 
   return {
     items,
     getOnlyFourItems,
-    handleGetDetailItem
+    handleGetDetailItem,
+    currentInputSearch
   };
 };

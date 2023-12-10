@@ -1,18 +1,18 @@
 export type ResItems = {
-    author: Author;
-    categories: Array<string>;
-    items: Items[];
-}
+  author: Author;
+  categories: Array<string>;
+  items: Items[];
+};
 
 export type ResItem = {
-    author: Author;
-    item: Item;
-}
+  author: Author;
+  item: Item;
+};
 
 export type Author = {
-    name: string;
-    lastname: string;
-}
+  name: string;
+  lastname: string;
+};
 
 export type Item = {
   id: string;
@@ -26,7 +26,10 @@ export type Item = {
   initial_quantity: number;
 };
 
-export type Items = Omit<Item, "sold_quantity" | "description" | "initial_quantity"> & {};
+export type Items = Omit<
+  Item,
+  "sold_quantity" | "description" | "initial_quantity"
+> & {};
 
 export type Price = {
   currency: string;

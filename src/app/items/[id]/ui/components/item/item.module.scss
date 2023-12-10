@@ -1,28 +1,35 @@
 @import "../../../../../variables.module.scss";
 
-
 .itemWrapper {
-    background: $white-color;
-    padding: 30px;
-    .price {
-        margin: 20px auto 30px;
-        font-size: 30px;
+  background: $white-color;
+  padding: 30px;
+  .price {
+    margin: 20px auto 30px;
+    font-size: 30px;
+  }
+  .button {
+    width: -webkit-fill-available;
+    background: $blue-color;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+      background: $blue-light-color;
     }
-    .button {
-        width: -webkit-fill-available;
-        background: $blue-color;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 15px;
-        border-radius: 5px;
+  }
+  .description {
+    margin-top: 40px;
+    p {
+      margin-top: 20px;
+      white-space: pre-line;
+      float: right;
+      display: flex;
+      align-items: center;
+      word-break: break-all;
     }
-    .description {
-        margin-top: 40px;
-        p {
-            margin-top: 20px;
-            white-space: pre-line;
-        }
-    }
+  }
 }
