@@ -1,4 +1,4 @@
 import { IRepository } from "@/app/core/domain/repository";
-import { ResItem, ResItems } from "./items";
+import { ItemNotFound, ResItem, ResItems } from "./items";
 
-export interface ItemsRepository extends IRepository<ResItems | ResItem> {}
+export interface ItemsRepository extends IRepository<ResItems | ResItem, ItemNotFound> {}

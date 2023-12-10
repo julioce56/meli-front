@@ -36,3 +36,7 @@ export type Price = {
   amount: number;
   decimals: number;
 };
+
+export type ItemNotFound = {
+  message: string
+}

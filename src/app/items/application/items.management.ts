@@ -1,4 +1,4 @@
-import { ResItem, ResItems } from "../domain/items";
+import { ItemNotFound, ResItem, ResItems } from "../domain/items";
 import { ItemsRepository } from "../domain/items.repository";
 
 export class ItemsManagement {
@@ -10,7 +10,12 @@ export class ItemsManagement {
     return (await this.itemsRepository.getAllItems(query)) as ResItems;
   }
 
-  async getItemDetail(id: string): Promise<ResItem> {
-    return (await this.itemsRepository.getItemDetail(id)) as ResItem;
+  async getItemDetail(id: string): Promise<ResItem | ItemNotFound> {
+    const resp = await this.itemsRepository.getItemDetail(id);
+    if ((resp as ItemNotFound).message) {
+      return resp as ItemNotFound;
+    } else {
+      return resp as ResItem;
+    }
   }
 }

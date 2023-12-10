@@ -1,10 +1,11 @@
 import { useAppSelector } from "@/app/core/store/store";
-import { ResItems } from "../../domain/items";
+import { ItemNotFound, ResItem, ResItems } from "../../domain/items";
 import { useRouter } from "next/navigation";
 import { ItemsManagement } from "../../application/items.management";
 import { ItemsService } from "../../infraestructure/items.service";
 import { useDispatch } from "react-redux";
 import { itemsActions } from "../../store/items.slice";
+import { toast } from "sonner";
 
 export const ItemsListHook = () => {
   const router = useRouter();
@@ -24,9 +25,13 @@ export const ItemsListHook = () => {
   const handleGetDetailItem = (id: string, noRedirect?: boolean) => {
     (async () => {
       const resp = await itemsManager.getItemDetail(id);
-      dispatch(itemsActions.setItem(resp));
-      if (!noRedirect) {
-        router.push(`items/${id}`);
+      if ((resp as ItemNotFound).message) {
+        toast.warning("Producto no encontrado");
+      } else {
+        dispatch(itemsActions.setItem(resp as ResItem));
+        if (!noRedirect) {
+          router.push(`items/${id}`);
+        }
       }
     })();
   };
