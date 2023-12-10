@@ -17,6 +17,7 @@ const Header: FC = () => {
           width={120}
           onClick={goToHome}
           className={styles.meliImage}
+          priority={true}
         />
         <div className={styles.inputWrapper}>
           <input

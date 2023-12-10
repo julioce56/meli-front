@@ -37,6 +37,7 @@ const Item: FC = () => {
                   width: "100%",
                   height: "auto",
                 }}
+                priority={true}
               />
             </Col>
             <Col sm={4}>
