@@ -4,7 +4,6 @@ import { FC } from "react";
 import { ItemsListHook } from "../hooks/items-list.hook";
 import styles from "./items-list.module.scss";
 import Image from "next/image";
-import { Col, Container, Row } from "react-bootstrap";
 
 const ItemsList: FC = () => {
   const { getOnlyFourItems, handleGetDetailItem, currentInputSearch } = ItemsListHook();

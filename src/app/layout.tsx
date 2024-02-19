@@ -6,7 +6,6 @@ import { store } from "./core/store/store";
 import Home from "./core/ui/components/home/home";
 import { Inter } from 'next/font/google';
 import './globalicons.module.scss'; 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Toaster } from "sonner";
  
 const inter = Inter({ subsets: ['latin'] })

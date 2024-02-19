@@ -4,7 +4,6 @@ import { FC, useEffect } from "react";
 import { ItemHook } from "../../hooks/item.hook";
 import Image from "next/image";
 import styles from "./item.module.scss";
-import { Col, Row } from "react-bootstrap";
 import { numberFormat } from "@/app/core/ui/utils/format";
 import { ItemsListHook } from "@/app/items/ui/hooks/items-list.hook";
 import { useParams } from "next/navigation";
