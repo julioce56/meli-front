@@ -3,6 +3,10 @@
 .itemWrapper {
   background: $white-color;
   padding: 30px;
+  .item {
+    display: grid;
+    grid-template-columns: 70% auto;
+  }
   .price {
     margin: 20px auto 30px;
     font-size: 30px;
@@ -30,6 +34,14 @@
       display: flex;
       align-items: center;
       word-break: break-all;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .itemWrapper {
+    .item {
+      grid-template-columns: auto;
     }
   }
 }

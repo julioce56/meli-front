@@ -12,15 +12,15 @@ const ItemsList: FC = () => {
   return (
     <>
     <title>{`Busqueda relacionada con ${currentInputSearch}`}</title>
-    <Container className={styles.listWrapper}>
+    <div className={styles.listWrapper}>
       {getOnlyFourItems &&
         getOnlyFourItems().items.map((item, i) => (
-          <Row
+          <div
             className={styles.item}
             key={`${item.id}-${i}`}
             onClick={() => handleGetDetailItem(item.id)}
           >
-            <Col sm={2} className={styles.thumbnailWrapper}>
+            <div className={styles.thumbnailWrapper}>
               <Image
                 src={item.picture}
                 alt={item.title}
@@ -29,8 +29,8 @@ const ItemsList: FC = () => {
                 sizes="100vw"
                 className={styles.thumbnail}
               />
-            </Col>
-            <Col sm={8} className={styles.description}>
+            </div>
+            <div className={styles.description}>
               <div className={styles.price}>
                 <strong>
                   {item.price.currency} {item.price.amount.toLocaleString()}{" "}
@@ -42,13 +42,13 @@ const ItemsList: FC = () => {
                 </div>
               </div>
               <div className={styles.title}>{item.title}</div>
-            </Col>
-            <Col sm={2}>
+            </div>
+            <div>
               <div className={styles.condition}>{item.condition}</div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         ))}
-    </Container>
+    </div>
     </>
    
   );

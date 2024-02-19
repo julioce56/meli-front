@@ -25,8 +25,8 @@ const Item: FC = () => {
       <>
         <title>{`${item?.title}`}</title>
         <div className={styles.itemWrapper}>
-          <Row>
-            <Col sm={8}>
+          <div className={styles.item}>
+            <div>
               <Image
                 src={item.picture}
                 alt={item.title}
@@ -39,8 +39,8 @@ const Item: FC = () => {
                 }}
                 priority={true}
               />
-            </Col>
-            <Col sm={4}>
+            </div>
+            <div>
               <small>
                 {item.condition} - {numberFormat(item.initial_quantity)}{" "}
                 vendidos
@@ -54,14 +54,14 @@ const Item: FC = () => {
               <div className={styles.button} onClick={handleButton}>
                 Comprar
               </div>
-            </Col>
-            <Col sm={8}>
+            </div>
+            <div>
               <div className={styles.description}>
                 <h4>Descripción del producto</h4>
                 <p>{item.description}</p>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </div>
       </>
     )
