@@ -13,7 +13,7 @@ const ItemsList: FC = () => {
     <title>{`Busqueda relacionada con ${currentInputSearch}`}</title>
     <div className={styles.listWrapper}>
       {getOnlyFourItems &&
-        getOnlyFourItems().items.map((item, i) => (
+        getOnlyFourItems().items?.map((item, i) => (
           <div
             className={styles.item}
             key={`${item.id}-${i}`}

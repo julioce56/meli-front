@@ -8,14 +8,14 @@ import { numberFormat } from "@/app/core/ui/utils/format";
 import { ItemsListHook } from "@/app/items/ui/hooks/items-list.hook";
 import { useParams } from "next/navigation";
 
-const Item: FC = () => {
+const Item = () => {
   const { item, handleButton } = ItemHook();
   const { handleGetDetailItem } = ItemsListHook();
   const params = useParams();
 
   useEffect(() => {
     if (!item) {
-      handleGetDetailItem(params?.id as string, true);
+      handleGetDetailItem(params?.id, true);
     }
   }, []);
 
@@ -27,6 +27,7 @@ const Item: FC = () => {
           <div className={styles.item}>
             <div>
               <Image
+              data-testid="testImgThumbnail"
                 src={item.picture}
                 alt={item.title}
                 width={0}

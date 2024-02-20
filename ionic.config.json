@@ -1,0 +1,7 @@
+{
+  "name": "meli-challenge",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}

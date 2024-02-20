@@ -6,6 +6,7 @@ const InitialPage = () => {
   return (
     <div className={styles.initialWrapper}>
       <Image
+        data-testid="startSearchImg"
         src={startSearchImg}
         width={0}
         height={0}
